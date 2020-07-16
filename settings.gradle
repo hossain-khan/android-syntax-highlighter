@@ -1,2 +1,3 @@
+include ':highlighter'
 include ':example'
 rootProject.name = "Syntax Highlighter"
