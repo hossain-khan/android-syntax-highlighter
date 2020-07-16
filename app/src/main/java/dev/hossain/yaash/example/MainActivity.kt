@@ -1,4 +1,4 @@
-package dev.hossain.yaash
+package dev.hossain.yaash.example
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
