@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- https://developer.chrome.com/multidevice/webview/pixelperfect -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="www/main.css" rel="stylesheet"/>
+
+    <!-- https://prismjs.com/ -->
+    <link href="www/prism.css" rel="stylesheet"/>
+    <script src="www/prism.js"></script>
+    <!-- HTML/XML encode entities: https://mothereff.in/html-entities -->
+</head>
+<body>
+<h1>Just Testing PrismJS</h1>
+<p>Writing HTML for code! blah!</p>
+<pre class="line-numbers" data-line="15-25">
+<code class="language-kotlin">class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
+    private lateinit var navController: NavController
+    private lateinit var appBarConfiguration: AppBarConfiguration
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+
+        // https://developer.android.com/guide/navigation/navigation-ui#create_a_toolbar
+        navController = findNavController(R.id.nav_host_fragment)
+        appBarConfiguration = AppBarConfiguration(navController.graph)
+        binding.toolbar.setupWithNavController(navController, appBarConfiguration)
+        setSupportActionBar(binding.toolbar)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        Timber.d("Menu item selected: $item")
+        val isHandled = super.onOptionsItemSelected(item)
+        if (isHandled.not()) {
+            when (item.itemId) {
+                android.R.id.home -> {
+                    navController.popBackStack()
+                    return true
+                }
+            }
+        }
+        return isHandled
+    }
+}
+</code>
+</pre>
+</body>
+</html>

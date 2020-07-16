@@ -1,0 +1,25 @@
+body {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+}
+
+code {
+    padding: .2em .4em;
+    margin: 0;
+    font-size: 115%;
+    background-color: #dcdcdc;
+    border-radius: 6px;
+}
+
+/**
+ * Styles for dark mode ^_^
+ */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: black;
+    color: #ddd;
+  }
+
+  code {
+    background-color: #5c3b3b;
+  }
+}
