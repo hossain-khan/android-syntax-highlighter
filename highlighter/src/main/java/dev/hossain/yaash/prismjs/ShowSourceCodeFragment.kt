@@ -1,4 +1,4 @@
-package dev.hossain.yaash.webclient
+package dev.hossain.yaash.prismjs
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -10,6 +10,8 @@ import androidx.fragment.app.Fragment
 import androidx.webkit.WebSettingsCompat
 import androidx.webkit.WebViewFeature
 import dev.hossain.yaash.R
+import dev.hossain.yaash.webclient.AppWebViewClient
+import dev.hossain.yaash.webclient.WebViewChromeClient
 
 class ShowSourceCodeFragment : Fragment() {
     companion object {
