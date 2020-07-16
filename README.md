@@ -15,7 +15,7 @@ If you need a library, you may look into following existing projects
 703 :star:, Last updated: Jan 24, 2019
 1. [highlightjs-android](https://github.com/PDDStudio/highlightjs-android) - A view for source code syntax highlighting on Android.  
  283 :star:, Last updated: Sep 8, 2018
-1. [Syntax-View-Android](https://github.com/Badranh/Syntax-View-Android) - Beautiful Android Syntax View with line counter it will automatically highlight the code,you can design your own IDE using this view.  
+1. [Syntax-View-Android](https://github.com/Badranh/Syntax-View-Android) - Beautiful Android Syntax View with line counter it will automatically highlight the code.  
 42 :star:, Last updated: Mar 24, 2020
 
 > _NOTE: The 'Last updated' and :star: data was taken as of July 16th, 2020_
