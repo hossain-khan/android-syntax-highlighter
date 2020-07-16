@@ -1,4 +1,4 @@
-package dev.hossain.yaash
+package dev.hossain.yaash.example
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("dev.hossain.yaash", appContext.packageName)
+        assertEquals("dev.hossain.yaash.example", appContext.packageName)
     }
 }
