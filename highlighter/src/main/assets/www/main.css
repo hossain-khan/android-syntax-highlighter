@@ -2,12 +2,11 @@ body {
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
 }
 
-code {
-    padding: .2em .4em;
+/* Some basic reset remove any default margin */
+html, body, div, span, pre, code {
     margin: 0;
-    font-size: 115%;
-    background-color: #dcdcdc;
-    border-radius: 6px;
+	padding: 0;
+	border: 0;
 }
 
 /**
