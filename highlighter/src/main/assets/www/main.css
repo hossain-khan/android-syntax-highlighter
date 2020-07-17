@@ -1,0 +1,24 @@
+body {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+}
+
+/* Some basic reset remove any default margin */
+html, body, div, span, pre, code {
+    margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+/**
+ * Styles for dark mode ^_^
+ */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: black;
+    color: #ddd;
+  }
+
+  code {
+    background-color: #5c3b3b;
+  }
+}
