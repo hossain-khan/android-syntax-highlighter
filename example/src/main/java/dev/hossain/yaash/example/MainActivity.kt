@@ -5,6 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import dev.hossain.yaash.prismjs.ShowSourceCodeFragment
 import dev.hossain.yaash.prismjs.SyntaxHighlighterWebView
 
+/**
+ * Main activity to showcase both fragment based and custom view based syntax highlighting.
+ *
+ * @see ShowSourceCodeFragment
+ * @see SyntaxHighlighterWebView
+ */
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun loadSourceCodeFragment() {
         val fragment = ShowSourceCodeFragment.newInstance(
-            formattedSourceCode = sourceCode,
+            formattedSourceCode = fragmentSourceCode,
             language = "kotlin",
             showLineNumbers = true
         )
@@ -31,14 +37,17 @@ class MainActivity : AppCompatActivity() {
         val syntaxHighlighter: SyntaxHighlighterWebView = findViewById(R.id.syntax_highlighter_webview)
 
         syntaxHighlighter.bindSyntaxHighlighter(
-            formattedSourceCode = sourceCode,
+            formattedSourceCode = customViewSourceCode,
             language = "kotlin",
             showLineNumbers = true
         )
     }
 
-    // Sample code for syntax-highlight preview
-    private val sourceCode = """
+    //
+    // Sample codes for syntax-highlight preview
+    //
+
+    private val fragmentSourceCode = """
     |@SuppressLint("SetJavaScriptEnabled")
     |override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     |    super.onViewCreated(view, savedInstanceState)
@@ -62,6 +71,27 @@ class MainActivity : AppCompatActivity() {
     |            "" /* failUrl */
     |        )
     |    }
+    |}
+    """.trimMargin()
+
+    private val customViewSourceCode = """
+    |@SuppressLint("SetJavaScriptEnabled")
+    |fun bindSyntaxHighlighter(
+    |    formattedSourceCode: String,
+    |    language: String,
+    |    showLineNumbers: Boolean = false
+    |) {
+    |    settings.javaScriptEnabled = true
+    |    webChromeClient = WebViewChromeClient()
+    |    webViewClient = AppWebViewClient()
+    |
+    |    loadDataWithBaseURL(
+    |        ANDROID_ASSETS_PATH /* baseUrl */,
+    |        prismJsHtmlContent(formattedSourceCode, language, showLineNumbers) /* html-data */,
+    |        "text/html" /* mimeType */,
+    |        "utf-8" /* encoding */,
+    |        "" /* failUrl */
+    |    )
     |}
     """.trimMargin()
 }
