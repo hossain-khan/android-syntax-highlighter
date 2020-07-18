@@ -17,6 +17,20 @@ import dev.hossain.yaash.webclient.WebViewChromeClient
 /**
  * Fragment that shows syntax highlighted source code.
  * Use [newInstance] to provide source code and other configuration parameters.
+ *
+ * Here is an example of how to add the fragment from an activity:
+ * ```
+ *   val fragment = SyntaxHighlighterFragment.newInstance(
+ *       formattedSourceCode = "data class Student(val name: String)",
+ *       language = "kotlin",
+ *       showLineNumbers = true
+ *   )
+ *
+ *   val fragmentManager = supportFragmentManager
+ *   val fragmentTransaction = fragmentManager.beginTransaction()
+ *   fragmentTransaction.add(R.id.fragment_container, fragment)
+ *   fragmentTransaction.commit()
+ * ```
  */
 class SyntaxHighlighterFragment : Fragment() {
     companion object {

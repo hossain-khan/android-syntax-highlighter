@@ -9,6 +9,27 @@ import dev.hossain.yaash.webclient.WebViewChromeClient
 
 /**
  * Custom view that shows provided source code on custom view.
+ *
+ * Here is an example how to load syntax highlighting using this custom view:
+ *
+ * ```
+ * <!-- Add the view in your Activity or Fragment layout -->
+ * <dev.hossain.yaash.prismjs.SyntaxHighlighterWebView
+ *   android:id="@+id/syntax_highlighter_webview"
+ *   android:layout_width="match_parent"
+ *   android:layout_height="match_parent" />
+ * ```
+ *
+ * Once the Activity or Fragment is ready, binding the `SyntaxHighlighterWebView` with source coded and config.
+ * ```
+ *  val highlighter: SyntaxHighlighterWebView = findViewById(R.id.syntax_highlighter_webview)
+ *
+ *  highlighter.bindSyntaxHighlighter(
+ *      formattedSourceCode = "data class Student(val name: String)",
+ *      language = "kotlin",
+ *      showLineNumbers = true
+ *  )
+ * ```
  */
 class SyntaxHighlighterWebView @JvmOverloads constructor(
     context: Context,
