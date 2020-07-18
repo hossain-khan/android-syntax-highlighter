@@ -12,7 +12,7 @@ package dev.hossain.yaash.prismjs
  */
 fun prismJsHtmlContent(
     formattedSourceCode: String,
-    language: String,
+    language: String, // Language available via plugin https://prismjs.com/index.html#supported-languages
     showLineNumbers: Boolean = true
 ): String {
     return """<!DOCTYPE html>

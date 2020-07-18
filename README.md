@@ -75,3 +75,104 @@ Here is a screenshot taken from a demo static html page that has syntax highligh
 
 | ![device-2020-07-18-092715](https://user-images.githubusercontent.com/99822/87853541-fc52d700-c8d8-11ea-9dc6-2d4c624f3b74.png) | ![device-2020-07-18-092727](https://user-images.githubusercontent.com/99822/87853542-fceb6d80-c8d8-11ea-9641-4ecf927b5a01.png) | ![device-2020-07-18-092736](https://user-images.githubusercontent.com/99822/87853543-fe1c9a80-c8d8-11ea-9e11-c9779202368e.png) |
 | --- | --- | --- |
+
+## Building your own Fragment or Custom View
+Ideally, there should be a modular component or custom-view that you **re-use** syntax highlighting with dynamic content.
+For that having a `Fragment` or custom `View` is ideal.
+
+We can taken the learning from [above](#under-the-hood) to wrap the library in fragment or custom view. Both comes with advantage of it's own.
+Regardless if which option is choosen, the underlying code is _almost_ identical.
+
+### Custom View
+The advantage of custom view is that, it can be used in `Fragment` too. Let's take a look how we can templatize the HTML to load source code dynamically.
+
+In this case, all we need to do is move the [html content defined above] to a `String` variable with options you need.
+
+#### PrismJS Template
+```kotlin
+fun prismJsHtmlContent(
+    formattedSourceCode: String,
+    language: String,
+    showLineNumbers: Boolean = true
+): String {
+    return """<!DOCTYPE html>
+<html>
+<head>
+    <!-- https://developer.chrome.com/multidevice/webview/pixelperfect -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="www/main.css" rel="stylesheet"/>
+
+    <!-- https://prismjs.com/ -->
+    <link href="www/prism.css" rel="stylesheet"/>
+    <script src="www/prism.js"></script>
+</head>
+<body>
+<pre class="${if (showLineNumbers) "line-numbers" else ""}">
+<code class="language-${language}">${formattedSourceCode}</code>
+</pre>
+</body>
+</html>
+"""
+}
+```
+
+In this example, we have `showLineNumbers` as optional parameter, likewise we could have line highlighting parameter and so on.
+PrismJS has [dozens of plugins](https://prismjs.com/download.html) that you can use and expose those options though this function.
+
+#### Creating custom syntax highlighter WebView
+Here you just need to extend the `WebView` and expose a function `bindSyntaxHighlighter()` to send source code and configurations.
+```kotlin
+class SyntaxHighlighterWebView @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
+) : WebView(context, attrs, defStyleAttr) {
+    companion object {
+        private const val ANDROID_ASSETS_PATH = "file:///android_asset/"
+    }
+
+    @SuppressLint("SetJavaScriptEnabled")
+    fun bindSyntaxHighlighter(
+        formattedSourceCode: String,
+        language: String,
+        showLineNumbers: Boolean = false
+    ) {
+        settings.javaScriptEnabled = true
+        webChromeClient = WebViewChromeClient()
+        webViewClient = AppWebViewClient()
+
+        loadDataWithBaseURL(
+            ANDROID_ASSETS_PATH /* baseUrl */,
+            prismJsHtmlContent(formattedSourceCode, language, showLineNumbers) /* html-data */,
+            "text/html" /* mimeType */,
+            "utf-8" /* encoding */,
+            "" /* failUrl */
+        )
+    }
+}
+```
+
+#### Use custom view from Fragment or Activity
+
+Using the newly defined `SyntaxHighlighterWebView` in `Fragment` or `Activity` is business as usual that you are used to.
+
+In your Layout XML file, add the view with proper layout parameters.
+
+```xml
+<your.prismjs.SyntaxHighlighterWebView
+    android:id="@+id/syntax_highlighter_webview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" />
+```
+
+When `Fragment` or `Activity` is loaded, get reference to `SyntaxHighlighterWebView` and bind it with source code.
+```kotlin
+val syntaxHighlighter = findViewById(R.id.syntax_highlighter_webview)
+
+syntaxHighlighter.bindSyntaxHighlighter(
+    formattedSourceCode = "data class Student(val name: String)",
+    language = "kotlin"
+)
+```
+
+That's it, you have re-usable custom view that you can use anywhere in the layout.
