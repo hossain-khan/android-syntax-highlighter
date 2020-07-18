@@ -219,6 +219,7 @@ to initialize and load the syntax highlighting.
 @SuppressLint("SetJavaScriptEnabled")
 override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
+    // Loads the plain `WebView` defined in `fragment_highlighter.xml`
     val webView: WebView = view.findViewById(R.id.web_view)
 
     webView.apply {
