@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:autoLink="web"
-        android:text="Syntax Highlighting using https://highlightjs.org/" />
+        android:text="Syntax Highlighting using https://highlightjs.org JS library." />
 
     <Button
         android:id="@+id/highlightjs_demo_button"
@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:autoLink="web"
-        android:text="Syntax Highlighting using https://prismjs.com/" />
+        android:text="Syntax Highlighting using https://prismjs.com JS library." />
 
     <Button
         android:id="@+id/prismjs_demo_button"

@@ -19,6 +19,8 @@ class PrismJsDemoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_demo_prismjs)
 
+        supportActionBar?.title = "PrismJS Demo"
+
         loadSourceCodeFragment()
         loadSourceCodeCustomView()
     }

@@ -19,6 +19,8 @@ class HighlightJsDemoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_demo_highlightjs)
 
+        supportActionBar?.title = "HighlightJS Demo"
+
         loadSourceCodeFragment()
         loadSourceCodeCustomView()
     }
