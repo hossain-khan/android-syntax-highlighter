@@ -73,4 +73,5 @@ webView.apply {
 #### Screenshot
 Here is a screenshot taken from a demo static html page that has syntax highlighting using Prism JS.
 
-<img width="200" src="https://user-images.githubusercontent.com/99822/87729492-809b4200-c793-11ea-8bfd-810359a11663.png">
+| ![device-2020-07-18-092715](https://user-images.githubusercontent.com/99822/87853541-fc52d700-c8d8-11ea-9dc6-2d4c624f3b74.png) | ![device-2020-07-18-092727](https://user-images.githubusercontent.com/99822/87853542-fceb6d80-c8d8-11ea-9641-4ecf927b5a01.png) | ![device-2020-07-18-092736](https://user-images.githubusercontent.com/99822/87853543-fe1c9a80-c8d8-11ea-9e11-c9779202368e.png) |
+| --- | --- | --- |
