@@ -2,9 +2,11 @@
 yet another android syntax highlighter (YAASH)
 
 ### Objective
-Explore well established web based syntax highlighter like [PrismJS](https://prismjs.com/) and [highlight.js](https://highlightjs.org/), and showcase how anybody can quickly incorporate these into their project by following some examples provided here.
+Explore well established web based syntax highlighter like [PrismJS](https://prismjs.com/) and [highlight.js](https://highlightjs.org/), 
+and showcase how anybody can quickly incorporate these into their project by following some examples provided here.
 
-The objective is not exactly to provide a _library_ that you can use with Gradle.
+> The intention is **NOT** to create another library project that gets abandoned over time.
+Feel free to copy parts of code that is necessary for you to add syntax highlighting support to you app.
 
 
 ## Existing Syntax Highlighting Libraries
@@ -86,7 +88,7 @@ Regardless if which option is choosen, the underlying code is _almost_ identical
 ### Custom View
 The advantage of custom view is that, it can be used in `Fragment` too. Let's take a look how we can templatize the HTML to load source code dynamically.
 
-In this case, all we need to do is move the [html content defined above] to a `String` variable with options you need.
+In this case, all we need to do is move the [html content defined above](#2-use-htmlcssjs-asset) to a `String` variable with options you need.
 
 #### PrismJS Template
 ```kotlin
