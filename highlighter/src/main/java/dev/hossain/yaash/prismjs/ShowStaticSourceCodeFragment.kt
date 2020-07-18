@@ -44,7 +44,7 @@ class ShowStaticSourceCodeFragment : Fragment() {
             settings.javaScriptEnabled = true
             webChromeClient = WebViewChromeClient()
             webViewClient = AppWebViewClient()
-            loadUrl("${ANDROID_ASSETS_PATH}_template.html")
+            loadUrl("${ANDROID_ASSETS_PATH}prismjs_template.html")
         }
     }
 }
