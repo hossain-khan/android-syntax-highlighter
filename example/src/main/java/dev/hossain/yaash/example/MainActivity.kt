@@ -3,6 +3,7 @@ package dev.hossain.yaash.example
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import dev.hossain.yaash.prismjs.ShowSourceCodeFragment
+import dev.hossain.yaash.prismjs.SyntaxHighlighterWebView
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -10,6 +11,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         loadSourceCodeFragment()
+        loadSourceCodeCustomView()
     }
 
     private fun loadSourceCodeFragment() {
@@ -23,6 +25,16 @@ class MainActivity : AppCompatActivity() {
         val fragmentTransaction = fragmentManager.beginTransaction()
         fragmentTransaction.add(R.id.fragment_container, fragment)
         fragmentTransaction.commit()
+    }
+
+    private fun loadSourceCodeCustomView() {
+        val syntaxHighlighter: SyntaxHighlighterWebView = findViewById(R.id.syntax_highlighter_webview)
+
+        syntaxHighlighter.bindSyntaxHighlighter(
+            formattedSourceCode = sourceCode,
+            language = "kotlin",
+            showLineNumbers = true
+        )
     }
 
     // Sample code for syntax-highlight preview
