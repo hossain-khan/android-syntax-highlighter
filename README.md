@@ -7,7 +7,7 @@ and showcase how anybody can quickly incorporate these into their project by fol
 
 
 > The intention is **NOT** to create another library project that gets abandoned over time.
-Feel free to copy parts of code that is necessary for you to add syntax highlighting support to you app.
+Feel free to copy parts of code that is necessary for you to add syntax highlighting support to your app.
 
 
 ## Existing Syntax Highlighting Libraries
@@ -59,7 +59,8 @@ For example:
 ```
 
 > NOTE: For most cases, hard coding sample code for each sample-code is not ideal. 
-> Soon, we will explore how to make the HTML file as template and inject source code from Activity or Fragment.
+> Soon, we will explore how to make the HTML file as template and inject source code from Activity or Fragment. 
+> See [Custom View](#building-your-own-fragment-or-custom-view) section below for detailed instructions.
 
 ### 3. Load the static HTML on `WebView`
 Finally on your Activity or Fragment, once view is loaded initialize `WebView` with local html file from `assets`.
@@ -83,12 +84,13 @@ Here is a screenshot taken from a demo static html page that has syntax highligh
 Ideally, there should be a modular component or custom-view that you **re-use** syntax highlighting with dynamic content.
 For that having a `Fragment` or custom `View` is ideal.
 
-We can taken the learning from [above](#under-the-hood) to wrap the library in fragment or custom view. 
-Both comes with advantage of it's own.
+We can taken the learning from [above](#under-the-hood) to wrap the JavaScript based syntax highlighting library 
+in fragment or custom view using `WebView`. Both comes with advantage of it's own.
 Regardless if which option is chosen, the underlying code is _almost_ identical.
 
 ### Custom View
-The advantage of custom view is that, it can be used in `Fragment` too. Let's take a look how we can templatize the HTML to load source code dynamically.
+The advantage of custom view is that, it can be used anywhere, `Activity` or `Fragment`. 
+Let's take a look how we can templatize the HTML to load source code dynamically.
 
 In this case, all we need to do is move the [html content defined above](#2-use-htmlcssjs-asset) to a `String` variable with options you need.
 
@@ -120,7 +122,7 @@ fun prismJsHtmlContent(
 }
 ```
 
-In this example, we have `showLineNumbers` as optional parameter, likewise we could have line highlighting parameter and so on.
+In this example, we have `showLineNumbers` as optional parameter, likewise we could have line number parameter to highlight a line or section.
 PrismJS has [dozens of plugins](https://prismjs.com/download.html) that you can use and expose those options though this function.
 
 #### Creating custom syntax highlighter WebView
