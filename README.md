@@ -2,9 +2,12 @@
 yet another android syntax highlighter (YAASH)
 
 ### Objective
-Explore well established web based syntax highlighter like [PrismJS](https://prismjs.com/) and [highlight.js](https://highlightjs.org/), and showcase how anybody can quickly incorporate these into their project by following some examples provided here.
+Explore well established web based syntax highlighter like [PrismJS](https://prismjs.com/) and [highlight.js](https://highlightjs.org/), 
+and showcase how anybody can quickly incorporate these into their project by following some examples provided here.
 
-The objective is not exactly to provide a _library_ that you can use with Gradle.
+
+> The intention is **NOT** to create another library project that gets abandoned over time.
+Feel free to copy parts of code that is necessary for you to add syntax highlighting support to your app.
 
 
 ## Existing Syntax Highlighting Libraries
@@ -56,7 +59,8 @@ For example:
 ```
 
 > NOTE: For most cases, hard coding sample code for each sample-code is not ideal. 
-> Soon, we will explore how to make the HTML file as template and inject source code from Activity or Fragment.
+> Soon, we will explore how to make the HTML file as template and inject source code from Activity or Fragment. 
+> See [Custom View](#building-your-own-fragment-or-custom-view) section below for detailed instructions.
 
 ### 3. Load the static HTML on `WebView`
 Finally on your Activity or Fragment, once view is loaded initialize `WebView` with local html file from `assets`.
@@ -73,4 +77,179 @@ webView.apply {
 #### Screenshot
 Here is a screenshot taken from a demo static html page that has syntax highlighting using Prism JS.
 
-<img width="200" src="https://user-images.githubusercontent.com/99822/87729492-809b4200-c793-11ea-8bfd-810359a11663.png">
+| ![device-2020-07-18-092715](https://user-images.githubusercontent.com/99822/87853541-fc52d700-c8d8-11ea-9dc6-2d4c624f3b74.png) | ![device-2020-07-18-092727](https://user-images.githubusercontent.com/99822/87853542-fceb6d80-c8d8-11ea-9641-4ecf927b5a01.png) | ![device-2020-07-18-092736](https://user-images.githubusercontent.com/99822/87853543-fe1c9a80-c8d8-11ea-9e11-c9779202368e.png) |
+| --- | --- | --- |
+
+## Building your own Fragment or Custom View
+Ideally, there should be a modular component or custom-view that you **re-use** syntax highlighting with dynamic content.
+For that having a `Fragment` or custom `View` is ideal.
+
+We can taken the learning from [above](#under-the-hood) to wrap the JavaScript based syntax highlighting library 
+in fragment or custom view using `WebView`. Both comes with advantage of it's own.
+Regardless if which option is chosen, the underlying code is _almost_ identical.
+
+### Custom View
+The advantage of custom view is that, it can be used anywhere, `Activity` or `Fragment`. 
+Let's take a look how we can templatize the HTML to load source code dynamically.
+
+In this case, all we need to do is move the [html content defined above](#2-use-htmlcssjs-asset) to a `String` variable with options you need.
+
+#### PrismJS Template Function
+```kotlin
+fun prismJsHtmlContent(
+    formattedSourceCode: String,
+    language: String,
+    showLineNumbers: Boolean = true
+): String {
+    return """<!DOCTYPE html>
+<html>
+<head>
+    <!-- https://developer.chrome.com/multidevice/webview/pixelperfect -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="www/main.css" rel="stylesheet"/>
+
+    <!-- https://prismjs.com/ -->
+    <link href="www/prism.css" rel="stylesheet"/>
+    <script src="www/prism.js"></script>
+</head>
+<body>
+<pre class="${if (showLineNumbers) "line-numbers" else ""}">
+<code class="language-${language}">${formattedSourceCode}</code>
+</pre>
+</body>
+</html>
+"""
+}
+```
+
+In this example, we have `showLineNumbers` as optional parameter, likewise we could have line number parameter to highlight a line or section.
+PrismJS has [dozens of plugins](https://prismjs.com/download.html) that you can use and expose those options though this function.
+
+#### Creating custom syntax highlighter WebView
+Here you just need to extend the `WebView` and expose a function `bindSyntaxHighlighter()` to send source code and configurations.
+```kotlin
+class SyntaxHighlighterWebView @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
+) : WebView(context, attrs, defStyleAttr) {
+    companion object {
+        private const val ANDROID_ASSETS_PATH = "file:///android_asset/"
+    }
+
+    @SuppressLint("SetJavaScriptEnabled")
+    fun bindSyntaxHighlighter(
+        formattedSourceCode: String,
+        language: String,
+        showLineNumbers: Boolean = false
+    ) {
+        settings.javaScriptEnabled = true
+        webChromeClient = WebViewChromeClient()
+        webViewClient = AppWebViewClient()
+
+        loadDataWithBaseURL(
+            ANDROID_ASSETS_PATH /* baseUrl */,
+            prismJsHtmlContent(formattedSourceCode, language, showLineNumbers) /* html-data */,
+            "text/html" /* mimeType */,
+            "utf-8" /* encoding */,
+            "" /* failUrl */
+        )
+    }
+}
+```
+
+#### Use custom view from Fragment or Activity
+
+Using the newly defined `SyntaxHighlighterWebView` in `Fragment` or `Activity` is business as usual that you are used to.
+
+In your Layout XML file, add the view with proper layout parameters.
+
+```xml
+<your.prismjs.SyntaxHighlighterWebView
+    android:id="@+id/syntax_highlighter_webview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" />
+```
+
+When `Fragment` or `Activity` is loaded, get reference to `SyntaxHighlighterWebView` and bind it with source code.
+```kotlin
+val syntaxHighlighter = findViewById(R.id.syntax_highlighter_webview)
+
+syntaxHighlighter.bindSyntaxHighlighter(
+    formattedSourceCode = "data class Student(val name: String)",
+    language = "kotlin"
+)
+```
+
+That's it, you have re-usable custom view that you can use anywhere in the layout.
+
+## Fragment
+`Fragment` is a modular UI component that can be use in a `Activity`. It comes with it's own flexibility like:
+* Being able to replace whole screen content
+* Replace only part of the content
+* Use with navigation library as destination
+* and so on
+
+In this case `Fragment` is just a shell that loads `WebView` and configures it such that it 
+can show syntax highlighted source code.
+
+### Create custom Syntax Highlighter Fragment
+
+Based on Android [official guide](https://developer.android.com/guide/components/fragments#Example) 
+we need to pass all the required data needed for `prismJsHtmlContent` function [defined above](#prismjs-template-function)
+```kotlin
+fun newInstance(
+    formattedSourceCode: String,
+    language: String,
+    showLineNumbers: Boolean = false
+) = SyntaxHighlighterFragment().apply {
+    arguments = Bundle().apply {
+        putString(ARG_KEY_SOURCE_CODE_CONTENT, formattedSourceCode)
+        putString(ARG_KEY_CODE_LANGUAGE, language)
+        putBoolean(ARG_KEY_SHOW_LINE_NUMBERS, showLineNumbers)
+    }
+}
+```
+
+> See [SyntaxHighlighterFragment.kt](https://github.com/amardeshbd/android-syntax-highlighter/blob/develop/highlighter/src/main/java/dev/hossain/yaash/prismjs/SyntaxHighlighterFragment.kt)
+> source code for full example.
+
+And finally when `Fragment#onViewCreated()` is called, we use the extracted the bundle parameters 
+to initialize and load the syntax highlighting.
+
+```kotlin
+@SuppressLint("SetJavaScriptEnabled")
+override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    super.onViewCreated(view, savedInstanceState)
+    // Loads the plain `WebView` defined in `fragment_highlighter.xml`
+    val webView: WebView = view.findViewById(R.id.web_view)
+
+    webView.apply {
+        settings.javaScriptEnabled = true
+        webChromeClient = WebViewChromeClient()
+        webViewClient = AppWebViewClient()
+
+        loadDataWithBaseURL(
+            ANDROID_ASSETS_PATH /* baseUrl */,
+            prismJsHtmlContent(sourceCode, language, showLineNumbers) /* html-data */,
+            "text/html" /* mimeType */,
+            "utf-8" /* encoding */,
+            "" /* failUrl */
+        )
+    }
+}
+```
+
+### Using the Syntax Highlighter Fragment
+From your `Activity` or `Fragment`, create an instance of `SyntaxHighlighterFragment` and add that
+to fragment container on the screen.
+```kotlin
+val fragment = SyntaxHighlighterFragment.newInstance(
+    formattedSourceCode = "data class Student(val name: String)",
+    language = "kotlin",
+    showLineNumbers = true
+)
+```
+
+> See [PrismJsDemoActivity.kt](https://github.com/amardeshbd/android-syntax-highlighter/blob/develop/example/src/main/java/dev/hossain/yaash/example/ui/demoprismjs/PrismJsDemoActivity.kt)
+> source code for full example.

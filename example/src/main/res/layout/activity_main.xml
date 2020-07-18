@@ -3,35 +3,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="24dp"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".ui.MainActivity">
 
     <TextView
         android:id="@+id/title_fragment_sample"
         style="@style/TextAppearance.AppCompat.Title"
-        android:layout_width="411dp"
-        android:layout_height="wrap_content"
-        android:text="Syntax Highlighting using Fragment" />
-
-    <FrameLayout
-        android:id="@+id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        tools:background="#cad" />
+        android:layout_height="wrap_content"
+        android:autoLink="web"
+        android:text="Syntax Highlighting using https://highlightjs.org JS library." />
+
+    <Button
+        android:id="@+id/highlightjs_demo_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="See highlightjs Demo" />
 
     <TextView
         android:id="@+id/title_custom_view_sample"
         style="@style/TextAppearance.AppCompat.Title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="Syntax Highlighting using Custom View" />
+        android:layout_marginTop="24dp"
+        android:autoLink="web"
+        android:text="Syntax Highlighting using https://prismjs.com JS library." />
 
-    <dev.hossain.yaash.prismjs.SyntaxHighlighterWebView
-        android:id="@+id/syntax_highlighter_webview"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        tools:foreground="#6ad" />
+    <Button
+        android:id="@+id/prismjs_demo_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="See PrismJS Demo" />
 </LinearLayout>

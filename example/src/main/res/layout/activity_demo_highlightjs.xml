@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.demohighlightjs.HighlightJsDemoActivity">
+
+    <TextView
+        android:id="@+id/title_fragment_sample"
+        style="@style/TextAppearance.AppCompat.Title"
+        android:layout_width="411dp"
+        android:layout_height="wrap_content"
+        android:text="Syntax Highlighting using Fragment" />
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        tools:background="#cad" />
+
+    <TextView
+        android:id="@+id/title_custom_view_sample"
+        style="@style/TextAppearance.AppCompat.Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Syntax Highlighting using Custom View" />
+
+    <dev.hossain.yaash.highlightjs.SyntaxHighlighterWebView
+        android:id="@+id/syntax_highlighter_webview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        tools:foreground="#6ad" />
+</LinearLayout>
