@@ -9,6 +9,8 @@ and showcase how anybody can quickly incorporate these into their project by fol
 > The intention is **NOT** to create another library project that gets abandoned over time.
 Feel free to copy parts of code that is necessary for you to add syntax highlighting support to your app.
 
+* Try out the latest [release](https://github.com/amardeshbd/android-syntax-highlighter/releases) - `syntax-highlighter-example-v1.1.apk` _(2.5 MB)_ [[Download](https://github.com/amardeshbd/android-syntax-highlighter/releases/download/v1.1/syntax-highlighter-example-v1.1.apk)] 
+
 
 ## Existing Syntax Highlighting Libraries
 
