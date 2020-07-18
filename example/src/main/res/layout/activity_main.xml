@@ -1,18 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/title_fragment_sample"
+        style="@style/TextAppearance.AppCompat.Title"
+        android:layout_width="411dp"
+        android:layout_height="wrap_content"
+        android:text="Syntax Highlighting using Fragment" />
 
     <FrameLayout
         android:id="@+id/fragment_container"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_weight="1"
+        tools:background="#cad" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/title_custom_view_sample"
+        style="@style/TextAppearance.AppCompat.Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Syntax Highlighting using Custom View" />
+
+    <dev.hossain.yaash.prismjs.SyntaxHighlighterWebView
+        android:id="@+id/syntax_highlighter_webview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        tools:foreground="#6ad" />
+</LinearLayout>

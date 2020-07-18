@@ -2,19 +2,27 @@ package dev.hossain.yaash.example
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import dev.hossain.yaash.prismjs.ShowSourceCodeFragment
+import dev.hossain.yaash.prismjs.SyntaxHighlighterFragment
+import dev.hossain.yaash.prismjs.SyntaxHighlighterWebView
 
+/**
+ * Main activity to showcase both fragment based and custom view based syntax highlighting.
+ *
+ * @see SyntaxHighlighterFragment
+ * @see SyntaxHighlighterWebView
+ */
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         loadSourceCodeFragment()
+        loadSourceCodeCustomView()
     }
 
     private fun loadSourceCodeFragment() {
-        val fragment = ShowSourceCodeFragment.newInstance(
-            formattedSourceCode = sourceCode,
+        val fragment = SyntaxHighlighterFragment.newInstance(
+            formattedSourceCode = fragmentSourceCode,
             language = "kotlin",
             showLineNumbers = true
         )
@@ -25,8 +33,21 @@ class MainActivity : AppCompatActivity() {
         fragmentTransaction.commit()
     }
 
-    // Sample code for syntax-highlight preview
-    private val sourceCode = """
+    private fun loadSourceCodeCustomView() {
+        val syntaxHighlighter: SyntaxHighlighterWebView = findViewById(R.id.syntax_highlighter_webview)
+
+        syntaxHighlighter.bindSyntaxHighlighter(
+            formattedSourceCode = customViewSourceCode,
+            language = "kotlin",
+            showLineNumbers = true
+        )
+    }
+
+    //
+    // Sample codes for syntax-highlight preview
+    //
+
+    private val fragmentSourceCode = """
     |@SuppressLint("SetJavaScriptEnabled")
     |override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     |    super.onViewCreated(view, savedInstanceState)
@@ -50,6 +71,27 @@ class MainActivity : AppCompatActivity() {
     |            "" /* failUrl */
     |        )
     |    }
+    |}
+    """.trimMargin()
+
+    private val customViewSourceCode = """
+    |@SuppressLint("SetJavaScriptEnabled")
+    |fun bindSyntaxHighlighter(
+    |    formattedSourceCode: String,
+    |    language: String,
+    |    showLineNumbers: Boolean = false
+    |) {
+    |    settings.javaScriptEnabled = true
+    |    webChromeClient = WebViewChromeClient()
+    |    webViewClient = AppWebViewClient()
+    |
+    |    loadDataWithBaseURL(
+    |        ANDROID_ASSETS_PATH /* baseUrl */,
+    |        prismJsHtmlContent(formattedSourceCode, language, showLineNumbers) /* html-data */,
+    |        "text/html" /* mimeType */,
+    |        "utf-8" /* encoding */,
+    |        "" /* failUrl */
+    |    )
     |}
     """.trimMargin()
 }
