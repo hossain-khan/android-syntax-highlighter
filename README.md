@@ -26,7 +26,21 @@ If you need a library, you may look into following existing projects
 > _NOTE: The 'Last updated' and :star: data was taken as of July 16th, 2020_
 
 ------------------------
- 
+
+- [Under the hood](#under-the-hood)
+  - [1. Choose JS Library](#1-choose-js-library)
+  - [2. Use HTML+CSS+JS Asset](#2-use-htmlcssjs-asset)
+  - [3. Load the static HTML on `WebView`](#3-load-the-static-html-on-webview)
+    - [Example App Screenshots](#screenshot)
+- [Building your own Fragment or Custom View](#building-your-own-fragment-or-custom-view)
+  - [Custom View](#custom-view)
+    - [PrismJS Template Function](#prismjs-template-function)
+    - [Creating custom syntax highlighter WebView](#creating-custom-syntax-highlighter-webview)
+    - [Use custom view from Fragment or Activity](#use-custom-view-from-fragment-or-activity)
+  - [Fragment](#fragment)
+    - [Create custom Syntax Highlighter Fragment](#create-custom-syntax-highlighter-fragment)
+    - [Using the Syntax Highlighter Fragment](#using-the-syntax-highlighter-fragment)
+
 ## Under the hood
 Here is how you would have syntax highlighting using any modern JavaScript library.
 
