@@ -17,8 +17,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.demohighlightjs.HighlightJsDemoActivity" />
-        <activity android:name=".ui.demoprismjs.PrismJsDemoActivity" />
+        <activity
+            android:name=".ui.demohighlightjs.HighlightJsDemoActivity"
+            android:parentActivityName=".ui.MainActivity" />
+        <activity
+            android:name=".ui.demoprismjs.PrismJsDemoActivity"
+            android:parentActivityName=".ui.MainActivity" />
     </application>
 
 </manifest>
