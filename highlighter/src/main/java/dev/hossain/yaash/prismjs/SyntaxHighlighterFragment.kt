@@ -10,15 +10,29 @@ import androidx.fragment.app.Fragment
 import androidx.webkit.WebSettingsCompat
 import androidx.webkit.WebViewFeature
 import dev.hossain.yaash.R
-import dev.hossain.yaash.prismjs.ShowSourceCodeFragment.Companion.newInstance
+import dev.hossain.yaash.prismjs.SyntaxHighlighterFragment.Companion.newInstance
 import dev.hossain.yaash.webclient.AppWebViewClient
 import dev.hossain.yaash.webclient.WebViewChromeClient
 
 /**
  * Fragment that shows syntax highlighted source code.
  * Use [newInstance] to provide source code and other configuration parameters.
+ *
+ * Here is an example of how to add the fragment from an activity:
+ * ```
+ *   val fragment = SyntaxHighlighterFragment.newInstance(
+ *       formattedSourceCode = "data class Student(val name: String)",
+ *       language = "kotlin",
+ *       showLineNumbers = true
+ *   )
+ *
+ *   val fragmentManager = supportFragmentManager
+ *   val fragmentTransaction = fragmentManager.beginTransaction()
+ *   fragmentTransaction.add(R.id.fragment_container, fragment)
+ *   fragmentTransaction.commit()
+ * ```
  */
-class ShowSourceCodeFragment : Fragment() {
+class SyntaxHighlighterFragment : Fragment() {
     companion object {
         private const val ANDROID_ASSETS_PATH = "file:///android_asset/"
 
@@ -33,7 +47,7 @@ class ShowSourceCodeFragment : Fragment() {
             formattedSourceCode: String,
             language: String,
             showLineNumbers: Boolean = false
-        ) = ShowSourceCodeFragment().apply {
+        ) = SyntaxHighlighterFragment().apply {
             arguments = Bundle(4).apply {
                 putString(ARG_KEY_SOURCE_CODE_CONTENT, formattedSourceCode)
                 putString(ARG_KEY_CODE_LANGUAGE, language)

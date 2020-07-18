@@ -16,7 +16,7 @@ import dev.hossain.yaash.webclient.WebViewChromeClient
 /**
  * Fragment that loads hard coded static HTML file with syntax highlighting.
  *
- * @see ShowSourceCodeFragment
+ * @see SyntaxHighlighterFragment
  */
 class ShowStaticSourceCodeFragment : Fragment() {
     companion object {
