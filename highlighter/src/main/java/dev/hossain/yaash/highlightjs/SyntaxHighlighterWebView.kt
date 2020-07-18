@@ -26,8 +26,7 @@ import dev.hossain.yaash.webclient.WebViewChromeClient
  *
  *  highlighter.bindSyntaxHighlighter(
  *      formattedSourceCode = "data class Student(val name: String)",
- *      language = "kotlin",
- *      showLineNumbers = true
+ *      language = "kotlin"
  *  )
  * ```
  */
@@ -43,8 +42,7 @@ class SyntaxHighlighterWebView @JvmOverloads constructor(
     @SuppressLint("SetJavaScriptEnabled")
     fun bindSyntaxHighlighter(
         formattedSourceCode: String,
-        language: String,
-        showLineNumbers: Boolean = false
+        language: String
     ) {
         settings.javaScriptEnabled = true
         webChromeClient = WebViewChromeClient()

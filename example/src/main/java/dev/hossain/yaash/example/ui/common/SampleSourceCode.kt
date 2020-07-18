@@ -1,53 +1,12 @@
-package dev.hossain.yaash.example
+package dev.hossain.yaash.example.ui.common
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import dev.hossain.yaash.prismjs.SyntaxHighlighterFragment
-import dev.hossain.yaash.prismjs.SyntaxHighlighterWebView
-
-/**
- * Main activity to showcase both fragment based and custom view based syntax highlighting.
- *
- * @see SyntaxHighlighterFragment
- * @see SyntaxHighlighterWebView
- */
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        loadSourceCodeFragment()
-        loadSourceCodeCustomView()
-    }
-
-    private fun loadSourceCodeFragment() {
-        val fragment = SyntaxHighlighterFragment.newInstance(
-            formattedSourceCode = fragmentSourceCode,
-            language = "kotlin",
-            showLineNumbers = true
-        )
-
-        val fragmentManager = supportFragmentManager
-        val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.add(R.id.fragment_container, fragment)
-        fragmentTransaction.commit()
-    }
-
-    private fun loadSourceCodeCustomView() {
-        val syntaxHighlighter: SyntaxHighlighterWebView = findViewById(R.id.syntax_highlighter_webview)
-
-        syntaxHighlighter.bindSyntaxHighlighter(
-            formattedSourceCode = customViewSourceCode,
-            language = "kotlin",
-            showLineNumbers = true
-        )
-    }
+object SampleSourceCode {
 
     //
     // Sample codes for syntax-highlight preview
     //
 
-    private val fragmentSourceCode = """
+    val fragmentOnCreated = """
     |@SuppressLint("SetJavaScriptEnabled")
     |override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     |    super.onViewCreated(view, savedInstanceState)
@@ -74,7 +33,7 @@ class MainActivity : AppCompatActivity() {
     |}
     """.trimMargin()
 
-    private val customViewSourceCode = """
+    val customViewBind = """
     |@SuppressLint("SetJavaScriptEnabled")
     |fun bindSyntaxHighlighter(
     |    formattedSourceCode: String,
