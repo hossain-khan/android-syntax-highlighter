@@ -2,13 +2,13 @@ package dev.hossain.yaash.example
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import dev.hossain.yaash.prismjs.ShowSourceCodeFragment
+import dev.hossain.yaash.prismjs.SyntaxHighlighterFragment
 import dev.hossain.yaash.prismjs.SyntaxHighlighterWebView
 
 /**
  * Main activity to showcase both fragment based and custom view based syntax highlighting.
  *
- * @see ShowSourceCodeFragment
+ * @see SyntaxHighlighterFragment
  * @see SyntaxHighlighterWebView
  */
 class MainActivity : AppCompatActivity() {
@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun loadSourceCodeFragment() {
-        val fragment = ShowSourceCodeFragment.newInstance(
+        val fragment = SyntaxHighlighterFragment.newInstance(
             formattedSourceCode = fragmentSourceCode,
             language = "kotlin",
             showLineNumbers = true
