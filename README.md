@@ -1,5 +1,5 @@
 # android-syntax-highlighter
-yet another android syntax highlighter (YAASH)
+yet _NOT_ another android syntax highlighter (YNAASH)
 
 ### Objective
 Explore well established web based syntax highlighter like [PrismJS](https://prismjs.com/) and [highlight.js](https://highlightjs.org/), 
