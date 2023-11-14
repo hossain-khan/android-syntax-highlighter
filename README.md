@@ -17,13 +17,13 @@ Feel free to copy parts of code that is necessary for you to add syntax highligh
 If you need a library, you may look into following existing projects 
 
 1. [CodeView-Android](https://github.com/kbiakov/CodeView-Android) - Display code with syntax highlighting ✨ in native way.  
- 754 :star:, Last updated: Jan 24, 2019
+ 845 :star:, Last updated: Jan 24, 2019
 1. [highlightjs-android](https://github.com/PDDStudio/highlightjs-android) - A view for source code syntax highlighting on Android.  
- 290 :star:, Last updated: Aug 19, 2020
+ 310 :star:, Last updated: Aug 19, 2020
 1. [Syntax-View-Android](https://github.com/Badranh/Syntax-View-Android) - Beautiful Android Syntax View with line counter it will automatically highlight the code.  
-45 :star:, Last updated: Mar 24, 2020
+56 :star:, Last updated: Mar 24, 2020
 
-> _NOTE: The 'Last updated' and :star: data was taken as of April 10th, 2021_
+> _NOTE: The 'Last updated' and :star: data was taken as of Nov 13th, 2023_
 
 ------------------------
 
