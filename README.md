@@ -21,7 +21,13 @@ If you need a library, you may look into following existing projects
 1. [highlightjs-android](https://github.com/PDDStudio/highlightjs-android) - A view for source code syntax highlighting on Android.  
  310 :star:, Last updated: Aug 19, 2020
 1. [Syntax-View-Android](https://github.com/Badranh/Syntax-View-Android) - Beautiful Android Syntax View with line counter it will automatically highlight the code.  
-56 :star:, Last updated: Mar 24, 2020
+ 56 :star:, Last updated: Mar 24, 2020
+1. [KodeEditor](https://github.com/markusressel/KodeEditor) - A simple code editor with syntax highlighting and pinch to zoom.  
+ 72 :star:, Last updated: May 19, 2023
+1. [HighlightJs View - Android](https://github.com/PDDStudio/highlightjs-android) - A view for source code syntax highlighting on Android.  
+ 310 :star:, Last updated: Aug 19, 2020
+1. [synta kt s](https://github.com/wingio/syntakts) - Simple to use text parser and syntax highlighter for Kotlin Multiplatform.  
+ 7 :star:, Last updated: Nov 11, 2023 _(Actively beind developed with KMP focus)_
 
 > _NOTE: The 'Last updated' and :star: data was taken as of Nov 13th, 2023_
 
