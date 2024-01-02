@@ -1,5 +1,5 @@
 # android-syntax-highlighter
-yet another android syntax highlighter (YAASH)
+yet _NOT_ another android syntax highlighter (YNAASH)
 
 ### Objective
 Explore well established web based syntax highlighter like [PrismJS](https://prismjs.com/) and [highlight.js](https://highlightjs.org/), 
@@ -9,24 +9,48 @@ and showcase how anybody can quickly incorporate these into their project by fol
 > The intention is **NOT** to create another library project that gets abandoned over time.
 Feel free to copy parts of code that is necessary for you to add syntax highlighting support to your app.
 
+* Try out the latest [release](https://github.com/amardeshbd/android-syntax-highlighter/releases) - `syntax-highlighter-example-v1.1.apk` _(2.5 MB)_ [[Download](https://github.com/amardeshbd/android-syntax-highlighter/releases/download/v1.1/syntax-highlighter-example-v1.1.apk)] 
+
 
 ## Existing Syntax Highlighting Libraries
 
 If you need a library, you may look into following existing projects 
 
 1. [CodeView-Android](https://github.com/kbiakov/CodeView-Android) - Display code with syntax highlighting ✨ in native way.  
-703 :star:, Last updated: Jan 24, 2019
+ 845 :star:, Last updated: Jan 24, 2019
 1. [highlightjs-android](https://github.com/PDDStudio/highlightjs-android) - A view for source code syntax highlighting on Android.  
- 283 :star:, Last updated: Sep 8, 2018
+ 310 :star:, Last updated: Aug 19, 2020
 1. [Syntax-View-Android](https://github.com/Badranh/Syntax-View-Android) - Beautiful Android Syntax View with line counter it will automatically highlight the code.  
-42 :star:, Last updated: Mar 24, 2020
+ 56 :star:, Last updated: Mar 24, 2020
+1. [KodeEditor](https://github.com/markusressel/KodeEditor) - A simple code editor with syntax highlighting and pinch to zoom.  
+ 72 :star:, Last updated: May 19, 2023
+1. [HighlightJs View - Android](https://github.com/PDDStudio/highlightjs-android) - A view for source code syntax highlighting on Android.  
+ 310 :star:, Last updated: Aug 19, 2020
+1. [synta kt s](https://github.com/wingio/syntakts) - Simple to use text parser and syntax highlighter for Kotlin Multiplatform.  
+ 7 :star:, Last updated: Nov 11, 2023 _(Actively beind developed with KMP focus)_
 
-> _NOTE: The 'Last updated' and :star: data was taken as of July 16th, 2020_
+> _NOTE: The 'Last updated' and :star: data was taken as of Nov 13th, 2023_
 
 ------------------------
- 
+
+- [Under the hood](#under-the-hood)
+  - [1. Choose JS Library](#1-choose-js-library)
+  - [2. Use HTML+CSS+JS Asset](#2-use-htmlcssjs-asset)
+  - [3. Load the static HTML on `WebView`](#3-load-the-static-html-on-webview)
+    - [Example App Screenshots](#screenshot)
+- [Building your own Fragment or Custom View](#building-your-own-fragment-or-custom-view)
+  - [Custom View](#custom-view)
+    - [PrismJS Template Function](#prismjs-template-function)
+    - [Creating custom syntax highlighter WebView](#creating-custom-syntax-highlighter-webview)
+    - [Use custom view from Fragment or Activity](#use-custom-view-from-fragment-or-activity)
+  - [Fragment](#fragment)
+    - [Create custom Syntax Highlighter Fragment](#create-custom-syntax-highlighter-fragment)
+    - [Using the Syntax Highlighter Fragment](#using-the-syntax-highlighter-fragment)
+
 ## Under the hood
 Here is how you would have syntax highlighting using any modern JavaScript library.
+
+> ps. I also ✍️ wrote a [short blog](https://medium.com/@hossainkhan/source-code-syntax-highlighting-on-android-taking-full-control-b704fd4bd8ee) summarizing the process on Medium.com
 
 ### 1. Choose JS Library
 There are several popular syntax highlighters. Here I have used Prism JS because it's light weight and one of the popular one.   
