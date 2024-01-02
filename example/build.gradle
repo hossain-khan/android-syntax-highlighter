@@ -1,10 +1,15 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
 
 android {
     compileSdkVersion rootProject.ext.androidCompileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
+
+    buildFeatures {
+        viewBinding true
+    }
 
     defaultConfig {
         applicationId "dev.hossain.yaash.example"
