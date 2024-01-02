@@ -1,4 +1,4 @@
-package dev.hossain.yaash.example
+package dev.hossain.ynaash.example
 
 import org.junit.Assert.assertEquals
 import org.junit.Test

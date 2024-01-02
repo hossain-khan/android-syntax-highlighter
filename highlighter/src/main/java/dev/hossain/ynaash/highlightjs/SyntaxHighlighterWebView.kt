@@ -1,11 +1,11 @@
-package dev.hossain.yaash.highlightjs
+package dev.hossain.ynaash.highlightjs
 
 import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.webkit.WebView
-import dev.hossain.yaash.webclient.AppWebViewClient
-import dev.hossain.yaash.webclient.WebViewChromeClient
+import dev.hossain.ynaash.webclient.AppWebViewClient
+import dev.hossain.ynaash.webclient.WebViewChromeClient
 
 /**
  * Custom view that shows provided source code on custom view.

@@ -3,4 +3,4 @@
  * <p>
  * https://github.com/amardeshbd/android-syntax-highlighter
  */
-package dev.hossain.yaash;
+package dev.hossain.ynaash;

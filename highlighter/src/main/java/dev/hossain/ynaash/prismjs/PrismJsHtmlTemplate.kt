@@ -1,4 +1,4 @@
-package dev.hossain.yaash.prismjs
+package dev.hossain.ynaash.prismjs
 
 /**
  * This is an example how template can be defined with variables.

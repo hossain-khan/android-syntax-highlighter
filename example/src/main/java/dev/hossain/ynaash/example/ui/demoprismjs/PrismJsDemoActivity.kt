@@ -1,11 +1,11 @@
-package dev.hossain.yaash.example.ui.demoprismjs
+package dev.hossain.ynaash.example.ui.demoprismjs
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import dev.hossain.yaash.example.R
-import dev.hossain.yaash.example.ui.common.SampleSourceCode
-import dev.hossain.yaash.prismjs.SyntaxHighlighterFragment
-import dev.hossain.yaash.prismjs.SyntaxHighlighterWebView
+import dev.hossain.ynaash.example.R
+import dev.hossain.ynaash.example.ui.common.SampleSourceCode
+import dev.hossain.ynaash.prismjs.SyntaxHighlighterFragment
+import dev.hossain.ynaash.prismjs.SyntaxHighlighterWebView
 
 /**
  * Demo activity to showcase both fragment based and custom view based

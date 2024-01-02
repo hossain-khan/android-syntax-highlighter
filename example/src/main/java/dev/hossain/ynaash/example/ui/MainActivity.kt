@@ -1,12 +1,12 @@
-package dev.hossain.yaash.example.ui
+package dev.hossain.ynaash.example.ui
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import dev.hossain.yaash.example.R
-import dev.hossain.yaash.example.ui.demohighlightjs.HighlightJsDemoActivity
-import dev.hossain.yaash.example.ui.demoprismjs.PrismJsDemoActivity
+import dev.hossain.ynaash.example.R
+import dev.hossain.ynaash.example.ui.demohighlightjs.HighlightJsDemoActivity
+import dev.hossain.ynaash.example.ui.demoprismjs.PrismJsDemoActivity
 
 /**
  * Main activity to showcase both fragment based and custom view based syntax highlighting.

@@ -1,4 +1,4 @@
-package dev.hossain.yaash.example.ui.common
+package dev.hossain.ynaash.example.ui.common
 
 import android.content.Context
 import android.content.Intent

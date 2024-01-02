@@ -1,4 +1,4 @@
-package dev.hossain.yaash.webclient
+package dev.hossain.ynaash.webclient
 
 import android.webkit.ConsoleMessage
 import android.webkit.WebChromeClient

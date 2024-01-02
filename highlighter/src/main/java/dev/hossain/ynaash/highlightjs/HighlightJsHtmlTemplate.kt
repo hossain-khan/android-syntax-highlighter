@@ -1,4 +1,4 @@
-package dev.hossain.yaash.highlightjs
+package dev.hossain.ynaash.highlightjs
 
 /**
  * This is an example how template can be defined with variables.

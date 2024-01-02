@@ -1,4 +1,4 @@
-package dev.hossain.yaash.example
+package dev.hossain.ynaash.example
 
 import android.app.Application
 import timber.log.Timber

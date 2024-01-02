@@ -1,4 +1,4 @@
-package dev.hossain.yaash.webclient
+package dev.hossain.ynaash.webclient
 
 import android.graphics.Bitmap
 import android.util.Log

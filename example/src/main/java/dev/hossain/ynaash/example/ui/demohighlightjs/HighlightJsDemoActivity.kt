@@ -1,11 +1,11 @@
-package dev.hossain.yaash.example.ui.demohighlightjs
+package dev.hossain.ynaash.example.ui.demohighlightjs
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import dev.hossain.yaash.example.R
-import dev.hossain.yaash.example.ui.common.SampleSourceCode
-import dev.hossain.yaash.highlightjs.SyntaxHighlighterFragment
-import dev.hossain.yaash.highlightjs.SyntaxHighlighterWebView
+import dev.hossain.ynaash.example.R
+import dev.hossain.ynaash.example.ui.common.SampleSourceCode
+import dev.hossain.ynaash.highlightjs.SyntaxHighlighterFragment
+import dev.hossain.ynaash.highlightjs.SyntaxHighlighterWebView
 
 /**
  * Demo activity to showcase both fragment based and custom view based

@@ -28,7 +28,7 @@
         android:layout_marginTop="4dp"
         android:text="Syntax Highlighting using Custom View" />
 
-    <dev.hossain.yaash.highlightjs.SyntaxHighlighterWebView
+    <dev.hossain.ynaash.highlightjs.SyntaxHighlighterWebView
         android:id="@+id/syntax_highlighter_webview"
         android:layout_width="match_parent"
         android:layout_height="0dp"

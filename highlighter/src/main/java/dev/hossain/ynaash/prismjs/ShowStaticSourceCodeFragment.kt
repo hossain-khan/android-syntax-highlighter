@@ -1,4 +1,4 @@
-package dev.hossain.yaash.prismjs
+package dev.hossain.ynaash.prismjs
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -9,9 +9,9 @@ import android.webkit.WebView
 import androidx.fragment.app.Fragment
 import androidx.webkit.WebSettingsCompat
 import androidx.webkit.WebViewFeature
-import dev.hossain.yaash.R
-import dev.hossain.yaash.webclient.AppWebViewClient
-import dev.hossain.yaash.webclient.WebViewChromeClient
+import dev.hossain.ynaash.R
+import dev.hossain.ynaash.webclient.AppWebViewClient
+import dev.hossain.ynaash.webclient.WebViewChromeClient
 
 /**
  * Fragment that loads hard coded static HTML file with syntax highlighting.

@@ -1,4 +1,4 @@
-package dev.hossain.yaash
+package dev.hossain.ynaash
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

@@ -1,4 +1,4 @@
-package dev.hossain.yaash
+package dev.hossain.ynaash
 
 import org.junit.Test
 
