@@ -18,6 +18,7 @@ class AppWebViewClient : WebViewClient() {
         private const val LOG_TAG = "YaashWebViewClient"
     }
 
+    @Deprecated("Deprecated in Java")
     override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
         return true // Open any external URL via external browser
     }
