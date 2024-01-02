@@ -14,7 +14,7 @@ import dev.hossain.ynaash.webclient.WebViewChromeClient
  *
  * ```
  * <!-- Add the view in your Activity or Fragment layout -->
- * <dev.hossain.yaash.prismjs.SyntaxHighlighterWebView
+ * <dev.hossain.ynaash.prismjs.SyntaxHighlighterWebView
  *   android:id="@+id/syntax_highlighter_webview"
  *   android:layout_width="match_parent"
  *   android:layout_height="match_parent" />
