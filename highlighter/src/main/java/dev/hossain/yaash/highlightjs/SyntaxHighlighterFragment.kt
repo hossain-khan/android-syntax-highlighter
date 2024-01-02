@@ -71,9 +71,8 @@ class SyntaxHighlighterFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val webView: WebView = view.findViewById(R.id.web_view)
 
-        // https://stackoverflow.com/questions/57449900/letting-webview-on-android-work-with-prefers-color-scheme-dark?rq=1
-        if (WebViewFeature.isFeatureSupported(WebViewFeature.FORCE_DARK)) {
-            WebSettingsCompat.setForceDark(webView.settings, WebSettingsCompat.FORCE_DARK_ON)
+        if (WebViewFeature.isFeatureSupported(WebViewFeature.ALGORITHMIC_DARKENING)) {
+            WebSettingsCompat.setAlgorithmicDarkeningAllowed(webView.settings, true)
         }
 
         webView.apply {
