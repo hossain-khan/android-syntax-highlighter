@@ -33,7 +33,7 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    namespace 'dev.hossain.yaash'
+    namespace 'dev.hossain.ynaash'
 }
 
 dependencies {

@@ -12,7 +12,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "dev.hossain.yaash.example"
+        applicationId "dev.hossain.ynaash.example"
         minSdkVersion rootProject.ext.androidMinSdkVersion
         targetSdkVersion rootProject.ext.androidTargetSdkVersion
         versionCode 2
@@ -35,7 +35,7 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    namespace 'dev.hossain.yaash.example'
+    namespace 'dev.hossain.ynaash.example'
 }
 
 dependencies {
