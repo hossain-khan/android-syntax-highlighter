@@ -9,7 +9,7 @@ and showcase how anybody can quickly incorporate these into their project by fol
 > The intention is **NOT** to create another library project that gets abandoned over time.
 Feel free to copy parts of code that is necessary for you to add syntax highlighting support to your app.
 
-* Try out the latest [release](https://github.com/amardeshbd/android-syntax-highlighter/releases) - `syntax-highlighter-example-v1.1.apk` _(2.5 MB)_ [[Download](https://github.com/amardeshbd/android-syntax-highlighter/releases/download/v1.1/syntax-highlighter-example-v1.1.apk)] 
+* Try out the latest [release](https://github.com/hossain-khan/android-syntax-highlighter/releases) - `syntax-highlighter-example-v1.1.apk` _(2.5 MB)_ [[Download](https://github.com/hossain-khan/android-syntax-highlighter/releases/download/v1.1/syntax-highlighter-example-v1.1.apk)] 
 
 
 ## Existing Syntax Highlighting Libraries
@@ -58,7 +58,7 @@ There are several popular syntax highlighters. Here I have used Prism JS because
 Follow their documentation to download the library with the plugins you need. For example, showing line number is a plugin, that is how they can keep the library so light weight like `2KB` core. 
 
 ### 2. Use HTML+CSS+JS Asset
-Move downloaded `prism.js` and `prism.css` to `assets` resource directory. For example, here I have moved them to "[assets/www](https://github.com/amardeshbd/android-syntax-highlighter/tree/develop/highlighter/src/main/assets/www)" folder.
+Move downloaded `prism.js` and `prism.css` to `assets` resource directory. For example, here I have moved them to "[assets/www](https://github.com/hossain-khan/android-syntax-highlighter/tree/main/highlighter/src/main/assets/www)" folder.
 
 Write plain HTML that loads these assets and your source code.
 
@@ -235,7 +235,7 @@ fun newInstance(
 }
 ```
 
-> See [SyntaxHighlighterFragment.kt](https://github.com/amardeshbd/android-syntax-highlighter/blob/develop/highlighter/src/main/java/dev/hossain/yaash/prismjs/SyntaxHighlighterFragment.kt)
+> See [SyntaxHighlighterFragment.kt](https://github.com/hossain-khan/android-syntax-highlighter/blob/main/highlighter/src/main/java/dev/hossain/ynaash/prismjs/SyntaxHighlighterFragment.kt)
 > source code for full example.
 
 And finally when `Fragment#onViewCreated()` is called, we use the extracted the bundle parameters 
@@ -275,5 +275,5 @@ val fragment = SyntaxHighlighterFragment.newInstance(
 )
 ```
 
-> See [PrismJsDemoActivity.kt](https://github.com/amardeshbd/android-syntax-highlighter/blob/develop/example/src/main/java/dev/hossain/yaash/example/ui/demoprismjs/PrismJsDemoActivity.kt)
+> See [PrismJsDemoActivity.kt](https://github.com/hossain-khan/android-syntax-highlighter/blob/main/example/src/main/java/dev/hossain/ynaash/example/ui/demoprismjs/PrismJsDemoActivity.kt)
 > source code for full example.
