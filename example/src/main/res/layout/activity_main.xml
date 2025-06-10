@@ -41,5 +41,5 @@
         android:id="@+id/prismjs_compose_demo_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="See PrismJS Compose Demo" />
+        android:text="See PrismJS Demo - Jetpack Compose" />
 </LinearLayout>

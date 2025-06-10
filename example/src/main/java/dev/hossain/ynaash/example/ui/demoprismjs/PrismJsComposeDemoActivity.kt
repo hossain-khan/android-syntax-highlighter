@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -154,6 +155,25 @@ fun PrismJsComposeDemoScreen() {
                 modifier = Modifier.fillMaxSize()
             )
         }
+
+        Text(
+            text = "Compose Example",
+            style = MaterialTheme.typography.titleMedium
+        )
+
+        Card(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(200.dp)
+        ) {
+            SyntaxHighlighter(
+                sourceCode = SampleSourceCode.jetpackComposeView,
+                language = "kotlin",
+                showLineNumbers = false,
+                modifier = Modifier.fillMaxSize()
+            )
+        }
+        Spacer(modifier = Modifier.height(32.dp))
     }
 }
 
