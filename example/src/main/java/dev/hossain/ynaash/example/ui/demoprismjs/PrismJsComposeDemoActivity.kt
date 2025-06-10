@@ -2,6 +2,7 @@ package dev.hossain.ynaash.example.ui.demoprismjs
 
 import android.os.Bundle
 import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -23,6 +24,7 @@ import dev.hossain.ynaash.example.ui.common.SampleSourceCode
 class PrismJsComposeDemoActivity : AppCompatActivity() {
     
     override fun onCreate(savedInstanceState: Bundle?) {
+        enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         
         supportActionBar?.title = "PrismJS Compose Demo"
@@ -45,6 +47,7 @@ fun PrismJsComposeDemoScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .windowInsetsPadding(WindowInsets.systemBars)
             .padding(16.dp)
             .verticalScroll(rememberScrollState()),
         verticalArrangement = Arrangement.spacedBy(16.dp)
