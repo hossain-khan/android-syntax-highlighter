@@ -53,4 +53,13 @@ object SampleSourceCode {
     |    )
     |}
     """.trimMargin()
+
+    val jetpackComposeView = """
+    |SyntaxHighlighter(
+    |    sourceCode = "data class Student(val name: String, val age: Int)",
+    |    language = "kotlin",
+    |    showLineNumbers = false,
+    |    modifier = Modifier.fillMaxSize()
+    |)
+    """.trimMargin()
 }

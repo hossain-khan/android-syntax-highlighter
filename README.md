@@ -347,28 +347,5 @@ fun MyScreen() {
 }
 ```
 
-**Dependencies required for Compose support:**
-
-Add the following to your module's `build.gradle`:
-
-```kotlin
-android {
-    buildFeatures {
-        compose true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion '1.5.15'
-    }
-}
-
-dependencies {
-    implementation platform('androidx.compose:compose-bom:2024.12.01')
-    implementation 'androidx.compose.ui:ui'
-    implementation 'androidx.compose.ui:ui-tooling-preview'
-    implementation 'androidx.compose.material3:material3'
-    implementation 'androidx.activity:activity-compose:1.9.3'
-}
-```
-
 > See [PrismJsComposeDemoActivity.kt](https://github.com/hossain-khan/android-syntax-highlighter/blob/main/example/src/main/java/dev/hossain/ynaash/example/ui/demoprismjs/PrismJsComposeDemoActivity.kt)
 > for a complete working example.
