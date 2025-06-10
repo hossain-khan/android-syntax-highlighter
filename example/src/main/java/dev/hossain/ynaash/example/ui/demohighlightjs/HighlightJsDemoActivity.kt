@@ -1,7 +1,10 @@
 package dev.hossain.ynaash.example.ui.demohighlightjs
 
 import android.os.Bundle
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import dev.hossain.ynaash.example.R
 import dev.hossain.ynaash.example.ui.common.SampleSourceCode
 import dev.hossain.ynaash.highlightjs.SyntaxHighlighterFragment
@@ -16,10 +19,18 @@ import dev.hossain.ynaash.highlightjs.SyntaxHighlighterWebView
  */
 class HighlightJsDemoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_demo_highlightjs)
 
         supportActionBar?.title = "HighlightJS Demo"
+
+        // Apply window insets to handle system bars
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.demo_container)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
 
         loadSourceCodeFragment()
         loadSourceCodeCustomView()
