@@ -23,6 +23,9 @@
         <activity
             android:name=".ui.demoprismjs.PrismJsDemoActivity"
             android:parentActivityName=".ui.MainActivity" />
+        <activity
+            android:name=".ui.demoprismjs.PrismJsComposeDemoActivity"
+            android:parentActivityName=".ui.MainActivity" />
     </application>
 
 </manifest>
