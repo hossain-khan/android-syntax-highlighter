@@ -1,5 +1,8 @@
 package dev.hossain.ynaash.compose
 
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.viewinterop.AndroidView
@@ -32,24 +35,29 @@ fun SyntaxHighlighter(
     showLineNumbers: Boolean = false,
     modifier: Modifier = Modifier
 ) {
-    AndroidView(
-        modifier = modifier,
-        factory = { context ->
-            SyntaxHighlighterWebView(context).apply {
-                bindSyntaxHighlighter(
+    val scrollState = rememberScrollState()
+    Box(
+        modifier = modifier
+            .verticalScroll(scrollState)
+    ) {
+        AndroidView(
+            modifier = Modifier,
+            factory = { context ->
+                SyntaxHighlighterWebView(context).apply {
+                    bindSyntaxHighlighter(
+                        formattedSourceCode = sourceCode,
+                        language = language,
+                        showLineNumbers = showLineNumbers
+                    )
+                }
+            },
+            update = { webView ->
+                webView.bindSyntaxHighlighter(
                     formattedSourceCode = sourceCode,
                     language = language,
                     showLineNumbers = showLineNumbers
                 )
             }
-        },
-        update = { webView ->
-            // Update the webview when parameters change
-            webView.bindSyntaxHighlighter(
-                formattedSourceCode = sourceCode,
-                language = language,
-                showLineNumbers = showLineNumbers
-            )
-        }
-    )
+        )
+    }
 }

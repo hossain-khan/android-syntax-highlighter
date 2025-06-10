@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.systemBars
 import androidx.compose.foundation.layout.windowInsetsPadding
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Card
@@ -27,7 +28,10 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.nestedscroll.NestedScrollConnection
+import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -89,11 +93,13 @@ fun AppTheme(
 
 @Composable
 fun PrismJsComposeDemoScreen() {
+    val nestedScrollConnection = remember { object : NestedScrollConnection {} }
     Column(
         modifier = Modifier
             .fillMaxSize()
             .windowInsetsPadding(WindowInsets.systemBars)
             .padding(16.dp)
+            .nestedScroll(nestedScrollConnection)
             .verticalScroll(rememberScrollState()),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
@@ -146,7 +152,7 @@ fun PrismJsComposeDemoScreen() {
         Card(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(150.dp)
+                .height(100.dp)
         ) {
             SyntaxHighlighter(
                 sourceCode = "data class Student(val name: String, val age: Int)",
