@@ -31,8 +31,8 @@ ext {
     // Sdk and tools
     // --------------------------------------------------
     androidMinSdkVersion = 29 // Android 10
-    androidTargetSdkVersion = 34 // Android 14
-    androidCompileSdkVersion = 34
+    androidTargetSdkVersion = 35 // Android 15
+    androidCompileSdkVersion = 35
     // Android SDK Build Tools - Versions: https://developer.android.com/studio/releases/build-tools.html
     buildToolsVersion = '34.0.0'
 
