@@ -5,6 +5,8 @@ yet _NOT_ another android syntax highlighter (YNAASH)
 Explore well established web based syntax highlighter like [PrismJS](https://prismjs.com/) and [highlight.js](https://highlightjs.org/), 
 and showcase how anybody can quickly incorporate these into their project by following some examples provided here.
 
+This project provides examples for **Android Legacy Views**, **Fragments**, and **Jetpack Compose** implementations.
+
 
 > The intention is **NOT** to create another library project that gets abandoned over time.
 Feel free to copy parts of code that is necessary for you to add syntax highlighting support to your app.
@@ -38,7 +40,7 @@ If you need a library, you may look into following existing projects
   - [2. Use HTML+CSS+JS Asset](#2-use-htmlcssjs-asset)
   - [3. Load the static HTML on `WebView`](#3-load-the-static-html-on-webview)
     - [Example App Screenshots](#screenshot)
-- [Building your own Fragment or Custom View](#building-your-own-fragment-or-custom-view)
+- [Building your own Fragment, Custom View, or Composable](#building-your-own-fragment-custom-view-or-composable)
   - [Custom View](#custom-view)
     - [PrismJS Template Function](#prismjs-template-function)
     - [Creating custom syntax highlighter WebView](#creating-custom-syntax-highlighter-webview)
@@ -46,6 +48,9 @@ If you need a library, you may look into following existing projects
   - [Fragment](#fragment)
     - [Create custom Syntax Highlighter Fragment](#create-custom-syntax-highlighter-fragment)
     - [Using the Syntax Highlighter Fragment](#using-the-syntax-highlighter-fragment)
+  - [Jetpack Compose](#jetpack-compose)
+    - [SyntaxHighlighter Composable](#syntaxhighlighter-composable)
+    - [Using the SyntaxHighlighter Composable](#using-the-syntaxhighlighter-composable)
 
 ## Under the hood
 Here is how you would have syntax highlighting using any modern JavaScript library.
@@ -104,7 +109,7 @@ Here is a screenshot taken from a demo static html page that has syntax highligh
 | ![device-2020-07-18-092715](https://user-images.githubusercontent.com/99822/87853541-fc52d700-c8d8-11ea-9dc6-2d4c624f3b74.png) | ![device-2020-07-18-092727](https://user-images.githubusercontent.com/99822/87853542-fceb6d80-c8d8-11ea-9641-4ecf927b5a01.png) | ![device-2020-07-18-092736](https://user-images.githubusercontent.com/99822/87853543-fe1c9a80-c8d8-11ea-9e11-c9779202368e.png) |
 | --- | --- | --- |
 
-## Building your own Fragment or Custom View
+## Building your own Fragment, Custom View, or Composable
 Ideally, there should be a modular component or custom-view that you **re-use** syntax highlighting with dynamic content.
 For that having a `Fragment` or custom `View` is ideal.
 
@@ -277,3 +282,93 @@ val fragment = SyntaxHighlighterFragment.newInstance(
 
 > See [PrismJsDemoActivity.kt](https://github.com/hossain-khan/android-syntax-highlighter/blob/main/example/src/main/java/dev/hossain/ynaash/example/ui/demoprismjs/PrismJsDemoActivity.kt)
 > source code for full example.
+
+## Jetpack Compose
+Jetpack Compose support is available for modern Android development. The `SyntaxHighlighter` composable provides a Compose-friendly way to display syntax highlighted code by wrapping the proven WebView-based implementation.
+
+### SyntaxHighlighter Composable
+The `SyntaxHighlighter` composable leverages `AndroidView` to integrate the existing `SyntaxHighlighterWebView` into Compose UI. This approach maintains compatibility with the established PrismJS functionality while providing a modern Compose interface.
+
+```kotlin
+@Composable
+fun SyntaxHighlighter(
+    sourceCode: String,
+    language: String,
+    showLineNumbers: Boolean = false,
+    modifier: Modifier = Modifier
+) {
+    AndroidView(
+        modifier = modifier,
+        factory = { context ->
+            SyntaxHighlighterWebView(context).apply {
+                bindSyntaxHighlighter(
+                    formattedSourceCode = sourceCode,
+                    language = language,
+                    showLineNumbers = showLineNumbers
+                )
+            }
+        },
+        update = { webView ->
+            webView.bindSyntaxHighlighter(
+                formattedSourceCode = sourceCode,
+                language = language,
+                showLineNumbers = showLineNumbers
+            )
+        }
+    )
+}
+```
+
+> See [SyntaxHighlighterComposable.kt](https://github.com/hossain-khan/android-syntax-highlighter/blob/main/highlighter/src/main/java/dev/hossain/ynaash/compose/SyntaxHighlighterComposable.kt) 
+> for the complete implementation.
+
+### Using the SyntaxHighlighter Composable
+From your Compose UI, you can use the `SyntaxHighlighter` composable directly in your layouts:
+
+```kotlin
+@Composable
+fun MyScreen() {
+    Column {
+        Text("Code Example")
+        
+        Card(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(300.dp)
+        ) {
+            SyntaxHighlighter(
+                sourceCode = "data class Student(val name: String, val age: Int)",
+                language = "kotlin",
+                showLineNumbers = true,
+                modifier = Modifier.fillMaxSize()
+            )
+        }
+    }
+}
+```
+
+**Dependencies required for Compose support:**
+
+Add the following to your module's `build.gradle`:
+
+```kotlin
+android {
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.5.15'
+    }
+}
+
+dependencies {
+    implementation platform('androidx.compose:compose-bom:2024.12.01')
+    implementation 'androidx.compose.ui:ui'
+    implementation 'androidx.compose.ui:ui-tooling-preview'
+    implementation 'androidx.compose.material3:material3'
+    implementation 'androidx.activity:activity-compose:1.9.3'
+}
+```
+
+> See [PrismJsComposeDemoActivity.kt](https://github.com/hossain-khan/android-syntax-highlighter/blob/main/example/src/main/java/dev/hossain/ynaash/example/ui/demoprismjs/PrismJsComposeDemoActivity.kt)
+> for a complete working example.
