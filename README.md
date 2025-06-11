@@ -11,7 +11,7 @@ This project provides examples for **Android Legacy Views**, **Fragments**, and 
 > The intention is **NOT** to create another library project that gets abandoned over time.
 Feel free to copy parts of code that is necessary for you to add syntax highlighting support to your app.
 
-* Try out the latest [release](https://github.com/hossain-khan/android-syntax-highlighter/releases) - `syntax-highlighter-example-v1.1.apk` _(2.5 MB)_ [[Download](https://github.com/hossain-khan/android-syntax-highlighter/releases/download/v1.1/syntax-highlighter-example-v1.1.apk)] 
+* Try out the latest [release](https://github.com/hossain-khan/android-syntax-highlighter/releases) - `syntax-highlighter-example-v1.3.apk` _(28 MB)_ [[Download](https://github.com/hossain-khan/android-syntax-highlighter/releases/download/v1.3/syntax-highlighter-example-v1.3.apk)] 
 
 
 ## Existing Syntax Highlighting Libraries
