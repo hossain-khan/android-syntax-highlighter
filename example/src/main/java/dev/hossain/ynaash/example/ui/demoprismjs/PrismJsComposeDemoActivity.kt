@@ -107,6 +107,26 @@ fun PrismJsComposeDemoScreen() {
             text = "Jetpack Compose Syntax Highlighting",
             style = MaterialTheme.typography.headlineMedium
         )
+
+        Text(
+            text = "Compose Example",
+            style = MaterialTheme.typography.titleMedium
+        )
+
+        Card(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(170.dp)
+        ) {
+            SyntaxHighlighter(
+                sourceCode = SampleSourceCode.jetpackComposeView,
+                language = "kotlin",
+                showLineNumbers = false,
+                modifier = Modifier.fillMaxSize()
+            )
+        }
+
+        Spacer(modifier = Modifier.height(8.dp))
         
         Text(
             text = "Fragment onViewCreated Example",
@@ -162,23 +182,7 @@ fun PrismJsComposeDemoScreen() {
             )
         }
 
-        Text(
-            text = "Compose Example",
-            style = MaterialTheme.typography.titleMedium
-        )
 
-        Card(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(200.dp)
-        ) {
-            SyntaxHighlighter(
-                sourceCode = SampleSourceCode.jetpackComposeView,
-                language = "kotlin",
-                showLineNumbers = false,
-                modifier = Modifier.fillMaxSize()
-            )
-        }
         Spacer(modifier = Modifier.height(32.dp))
     }
 }
