@@ -109,7 +109,7 @@ fun PrismJsComposeDemoScreen() {
         )
 
         Text(
-            text = "Compose Example",
+            text = "Jetpack Compose View Example",
             style = MaterialTheme.typography.titleMedium
         )
 
