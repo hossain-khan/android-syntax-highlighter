@@ -22,7 +22,8 @@ import dev.hossain.ynaash.webclient.WebViewChromeClient
  * ```
  *   val fragment = SyntaxHighlighterFragment.newInstance(
  *       formattedSourceCode = "data class Student(val name: String)",
- *       language = "kotlin"
+ *       language = "kotlin",
+ *       showLineNumbers = true
  *   )
  *
  *   val fragmentManager = supportFragmentManager
