@@ -9,10 +9,15 @@ package dev.hossain.ynaash.prismjs
  * - Show invisible characters
  * - and so on
  * @see <a href="https://prismjs.com/download.html">Prism JS Download</a> options for more information.
+ *
+ * @param formattedSourceCode The source code to be highlighted.
+ * @param language Language available via plugin https://prismjs.com/index.html#supported-languages
+ * @param showLineNumbers Whether to show line numbers.
+ * @return The generated HTML string with PrismJS syntax highlighting.
  */
 fun prismJsHtmlContent(
     formattedSourceCode: String,
-    language: String, // Language available via plugin https://prismjs.com/index.html#supported-languages
+    language: String,
     showLineNumbers: Boolean = true
 ): String {
     return """<!DOCTYPE html>

@@ -3,6 +3,10 @@ package dev.hossain.ynaash.highlightjs
 /**
  * This is an example how template can be defined with variables.
  * @see <a href="https://highlightjs.org/usage/">Highlight JS Usage</a> for more information.
+ *
+ * @param formattedSourceCode The source code to be highlighted.
+ * @param language The programming language for syntax highlighting.
+ * @return The generated HTML string with Highlight.js syntax highlighting.
  */
 fun highlightJsHtmlContent(
     formattedSourceCode: String,
