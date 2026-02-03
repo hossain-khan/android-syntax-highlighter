@@ -40,6 +40,13 @@ class SyntaxHighlighterWebView @JvmOverloads constructor(
         private const val ANDROID_ASSETS_PATH = "file:///android_asset/"
     }
 
+    /**
+     * Binds the syntax highlighter with the provided source code and configuration.
+     *
+     * @param formattedSourceCode The source code to be syntax highlighted.
+     * @param language The programming language for syntax highlighting (e.g., "kotlin", "java", "javascript").
+     * @param showLineNumbers Whether to display line numbers alongside the code.
+     */
     @SuppressLint("SetJavaScriptEnabled")
     fun bindSyntaxHighlighter(
         formattedSourceCode: String,

@@ -22,8 +22,7 @@ import dev.hossain.ynaash.webclient.WebViewChromeClient
  * ```
  *   val fragment = SyntaxHighlighterFragment.newInstance(
  *       formattedSourceCode = "data class Student(val name: String)",
- *       language = "kotlin",
- *       showLineNumbers = true
+ *       language = "kotlin"
  *   )
  *
  *   val fragmentManager = supportFragmentManager
@@ -41,6 +40,9 @@ class SyntaxHighlighterFragment : Fragment() {
 
         /**
          * Creates new instance of the fragment with required values to render the syntax highlighted code.
+         *
+         * @param formattedSourceCode The source code to be syntax highlighted.
+         * @param language The programming language for syntax highlighting (e.g., "kotlin", "java", "javascript").
          */
         fun newInstance(
             formattedSourceCode: String,
