@@ -19,19 +19,19 @@ Feel free to copy parts of code that is necessary for you to add syntax highligh
 If you need a library, you may look into following existing projects 
 
 1. [CodeView-Android](https://github.com/kbiakov/CodeView-Android) - Display code with syntax highlighting ✨ in native way.  
- 845 :star:, Last updated: Jan 24, 2019
+ 893 :star:, Last updated: Jan 24, 2019
 1. [highlightjs-android](https://github.com/PDDStudio/highlightjs-android) - A view for source code syntax highlighting on Android.  
- 310 :star:, Last updated: Aug 19, 2020
+ 309 :star:, Last updated: Aug 19, 2020
 1. [Syntax-View-Android](https://github.com/Badranh/Syntax-View-Android) - Beautiful Android Syntax View with line counter it will automatically highlight the code.  
- 56 :star:, Last updated: Mar 24, 2020
+ 63 :star:, Last updated: Mar 24, 2020
 1. [KodeEditor](https://github.com/markusressel/KodeEditor) - A simple code editor with syntax highlighting and pinch to zoom.  
- 72 :star:, Last updated: May 19, 2023
-1. [HighlightJs View - Android](https://github.com/PDDStudio/highlightjs-android) - A view for source code syntax highlighting on Android.  
- 310 :star:, Last updated: Aug 19, 2020
+ 87 :star:, Last updated: Mar 2, 2026
+1. [KotlinTextMate](https://github.com/ivan-magda/kotlin-textmate) - Pure Kotlin port of VS Code's TextMate grammar engine. No regex hacks - real TextMate scoping with standard .tmLanguage grammars and Compose AnnotatedString rendering. Android/JVM.  
+ 11 :star:, Last updated: Apr 16, 2026 (relatively new project and active)
 1. [synta kt s](https://github.com/wingio/syntakts) - Simple to use text parser and syntax highlighter for Kotlin Multiplatform.  
- 7 :star:, Last updated: Nov 11, 2023 _(Actively beind developed with KMP focus)_
+ 39 :star:, Last updated: July 19, 2024
 
-> _NOTE: The 'Last updated' and :star: data was taken as of Nov 13th, 2023_
+> _NOTE: The 'Last updated' and :star: data was taken as of April 18th, 2026_
 
 ------------------------
 
