@@ -56,7 +56,7 @@ ext {
     // Unit test dependencies
     // --------------------------------------------------
     junitVersion = '4.13.2'
-    espressoCoreVersion = '3.6.1'
+    espressoCoreVersion = '3.7.0'
 
     // 3rd party library dependencies
     // --------------------------------------------------
