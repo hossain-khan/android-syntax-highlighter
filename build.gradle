@@ -50,7 +50,7 @@ ext {
     // Jetpack Compose dependencies
     // --------------------------------------------------
     // https://developer.android.com/jetpack/compose/bom
-    composeBomVersion = '2024.12.01'
+    composeBomVersion = '2025.12.00'
     composeCompilerVersion = '1.5.15'
 
     // Unit test dependencies
