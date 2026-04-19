@@ -40,7 +40,7 @@ ext {
     // --------------------------------------------------
     // https://developer.android.com/topic/libraries/support-library/revisions.html
     appCompatVersion = '1.7.0'
-    coreKtxVersion = '1.15.0'
+    coreKtxVersion = '1.16.0'
     // https://developer.android.com/reference/android/support/constraint/ConstraintLayout
     constraintLayoutVersion = '2.2.0'
     // https://developer.android.com/topic/libraries/architecture/adding-components
