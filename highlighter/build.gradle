@@ -49,7 +49,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.7.1'
 
     // https://developer.android.com/jetpack/androidx/releases/webkit
-    implementation "androidx.webkit:webkit:1.12.1"
+    implementation "androidx.webkit:webkit:1.15.0"
 
     // Jetpack Compose BOM
     implementation platform("androidx.compose:compose-bom:${rootProject.ext.composeBomVersion}")
