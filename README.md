@@ -1,6 +1,11 @@
 # android-syntax-highlighter
 yet _NOT_ another android syntax highlighter (YNAASH)
 
+> [!TIP]
+> #### Looking for Jetpack Compose based modern Syntax Highlighting?
+> There are multiple modern solution for source code syntax highlighting on Android.
+> Take a look into [android-syntax-highlighter-compose](https://github.com/hossain-khan/android-syntax-highlighter-compose) that compares all available options.
+
 ### Objective
 Explore well established web based syntax highlighter like [PrismJS](https://prismjs.com/) and [highlight.js](https://highlightjs.org/), 
 and showcase how anybody can quickly incorporate these into their project by following some examples provided here.
