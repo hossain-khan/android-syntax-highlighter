@@ -2,7 +2,7 @@
 yet _NOT_ another android syntax highlighter (YNAASH)
 
 > [!TIP]
-> #### <img height="16" alt="Image" src="https://github.com/user-attachments/assets/cb53c167-60bb-49bf-bc75-6cddd66bc1f5" /> Looking for Jetpack Compose based modern Syntax Highlighting?
+> ### <img height="24" alt="Image" src="https://github.com/user-attachments/assets/cb53c167-60bb-49bf-bc75-6cddd66bc1f5" /> Looking for Jetpack Compose based modern Syntax Highlighting?
 > There are multiple modern solution for source code syntax highlighting on Android.
 > Take a look into [android-syntax-highlighter-compose](https://github.com/hossain-khan/android-syntax-highlighter-compose) that compares some known available options.
 
