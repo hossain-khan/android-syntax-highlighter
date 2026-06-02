@@ -30,13 +30,13 @@ If you need a library, you may look into following existing projects
 1. [Syntax-View-Android](https://github.com/Badranh/Syntax-View-Android) - Beautiful Android Syntax View with line counter it will automatically highlight the code.  
  63 :star:, Last updated: Mar 24, 2020
 1. [KodeEditor](https://github.com/markusressel/KodeEditor) - A simple code editor with syntax highlighting and pinch to zoom.  
- 87 :star:, Last updated: Mar 2, 2026
+ 89 :star:, Last updated: Mar 2, 2026
 1. [KotlinTextMate](https://github.com/ivan-magda/kotlin-textmate) - Pure Kotlin port of VS Code's TextMate grammar engine. No regex hacks - real TextMate scoping with standard .tmLanguage grammars and Compose AnnotatedString rendering. Android/JVM.  
- 11 :star:, Last updated: Apr 16, 2026 (relatively new project and active)
+ 36 :star:, Last updated: May 28, 2026 (relatively new project and active)
 1. [synta kt s](https://github.com/wingio/syntakts) - Simple to use text parser and syntax highlighter for Kotlin Multiplatform.  
  39 :star:, Last updated: July 19, 2024
 
-> _NOTE: The 'Last updated' and :star: data was taken as of April 18th, 2026_
+> _NOTE: The 'Last updated' and :star: data was taken as of June 1, 2026_
 
 ------------------------
 
