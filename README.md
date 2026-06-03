@@ -35,6 +35,8 @@ If you need a library, you may look into following existing projects
  36 :star:, Last updated: May 28, 2026 (relatively new project and active)
 1. [synta kt s](https://github.com/wingio/syntakts) - Simple to use text parser and syntax highlighter for Kotlin Multiplatform.  
  39 :star:, Last updated: July 19, 2024
+1. [compose-highlight](https://github.com/hossain-khan/android-compose-highlight) - Simple library that leverages JS bridge to bring fast highlighting to Android Jetpack Compose
+ 20 :star:, Last updated: June 1, 2026 (active)
 
 > _NOTE: The 'Last updated' and :star: data was taken as of June 1, 2026_
 
