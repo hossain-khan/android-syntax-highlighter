@@ -62,7 +62,7 @@ If you need a library, you may look into following existing projects
 ## Under the hood
 Here is how you would have syntax highlighting using any modern JavaScript library.
 
-> ps. I also ✍️ wrote a [short blog](https://medium.com/@hossainkhan/source-code-syntax-highlighting-on-android-taking-full-control-b704fd4bd8ee) summarizing the process on Medium.com
+> ps. I also ✍️ wrote a [short blog](https://hossain.dev/posts/source-code-syntax-highlighting-on-android-taking-full-control/) summarizing this process
 
 ### 1. Choose JS Library
 There are several popular syntax highlighters. Here I have used Prism JS because it's light weight and one of the popular one.   
