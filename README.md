@@ -32,11 +32,11 @@ If you need a library, you may look into following existing projects
 1. [KodeEditor](https://github.com/markusressel/KodeEditor) - A simple code editor with syntax highlighting and pinch to zoom.  
  89 :star:, Last updated: Mar 2, 2026
 1. [KotlinTextMate](https://github.com/ivan-magda/kotlin-textmate) - Pure Kotlin port of VS Code's TextMate grammar engine. No regex hacks - real TextMate scoping with standard .tmLanguage grammars and Compose AnnotatedString rendering. Android/JVM.  
- 36 :star:, Last updated: May 28, 2026 (relatively new project and active)
+ 37 :star:, Last updated: June 10, 2026 (relatively new project and active)
 1. [synta kt s](https://github.com/wingio/syntakts) - Simple to use text parser and syntax highlighter for Kotlin Multiplatform.  
  39 :star:, Last updated: July 19, 2024
 1. [compose-highlight](https://github.com/hossain-khan/android-compose-highlight) - Simple library that leverages JS bridge to bring fast highlighting to Android Jetpack Compose  
- 20 :star:, Last updated: June 1, 2026 (active)
+ 21 :star:, Last updated: June 15, 2026 (active)
 
 > _NOTE: The 'Last updated' and :star: data was taken as of June 1, 2026_
 
