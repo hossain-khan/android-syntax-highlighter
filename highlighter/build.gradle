@@ -40,6 +40,12 @@ android {
         jvmTarget = '17'
     }
     namespace 'dev.hossain.ynaash'
+
+    lint {
+        // Dependency versions are managed centrally in the root build.gradle.
+        // Upgrading them is intentionally out of scope for this sample project.
+        disable += 'GradleDependency'
+    }
 }
 
 dependencies {

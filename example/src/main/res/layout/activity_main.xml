@@ -14,13 +14,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:autoLink="web"
-        android:text="Syntax Highlighting using https://highlightjs.org JS library." />
+        android:text="@string/highlightjs_title" />
 
     <Button
         android:id="@+id/highlightjs_demo_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="See highlightjs Demo" />
+        android:text="@string/highlightjs_demo_button" />
 
     <TextView
         android:id="@+id/title_custom_view_sample"
@@ -29,17 +29,17 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:autoLink="web"
-        android:text="Syntax Highlighting using https://prismjs.com JS library." />
+        android:text="@string/prismjs_title" />
 
     <Button
         android:id="@+id/prismjs_demo_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="See PrismJS Demo" />
+        android:text="@string/prismjs_demo_button" />
 
     <Button
         android:id="@+id/prismjs_compose_demo_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="See PrismJS Demo - Jetpack Compose" />
+        android:text="@string/prismjs_compose_demo_button" />
 </LinearLayout>

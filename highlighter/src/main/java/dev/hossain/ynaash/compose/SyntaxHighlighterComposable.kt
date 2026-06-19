@@ -25,15 +25,15 @@ import dev.hossain.ynaash.prismjs.SyntaxHighlighterWebView
  * 
  * @param sourceCode The source code to be syntax highlighted
  * @param language The programming language for syntax highlighting (e.g., "kotlin", "java", "javascript")
- * @param showLineNumbers Whether to display line numbers alongside the code
  * @param modifier Modifier to be applied to the syntax highlighter
+ * @param showLineNumbers Whether to display line numbers alongside the code
  */
 @Composable
 fun SyntaxHighlighter(
     sourceCode: String,
     language: String,
-    showLineNumbers: Boolean = false,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    showLineNumbers: Boolean = false
 ) {
     val scrollState = rememberScrollState()
     Box(

@@ -12,7 +12,7 @@
         style="@style/TextAppearance.AppCompat.Title"
         android:layout_width="411dp"
         android:layout_height="wrap_content"
-        android:text="Syntax Highlighting using Fragment" />
+        android:text="@string/syntax_highlighting_fragment_title" />
 
     <FrameLayout
         android:id="@+id/fragment_container"
@@ -27,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:text="Syntax Highlighting using Custom View" />
+        android:text="@string/syntax_highlighting_custom_view_title" />
 
     <dev.hossain.ynaash.prismjs.SyntaxHighlighterWebView
         android:id="@+id/syntax_highlighter_webview"
