@@ -4,6 +4,8 @@ import android.os.Build
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import android.annotation.SuppressLint
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
@@ -72,17 +74,12 @@ fun AppTheme(
 ) {
     val context = LocalContext.current
 
-    val colorScheme = when {
-        // Dynamic color is available on Android 12+
-        Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && darkTheme -> {
-            dynamicDarkColorScheme(context)
-        }
-        Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && !darkTheme -> {
-            dynamicLightColorScheme(context)
-        }
-        // Use default dark/light colorScheme for older Android versions
-        darkTheme -> darkColorScheme()
-        else -> lightColorScheme()
+    val colorScheme = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+        dynamicColorScheme(context, darkTheme)
+    } else if (darkTheme) {
+        darkColorScheme()
+    } else {
+        lightColorScheme()
     }
 
     MaterialTheme(
@@ -90,6 +87,22 @@ fun AppTheme(
         content = content
     )
 }
+
+/**
+ * Creates a dynamic light/dark color scheme for Android 12+ (API 31+).
+ * Marked [RequiresApi] so Lint understands it is only called behind an
+ * SDK version check in [AppTheme]. The [SuppressLint] annotation silences
+ * Lint's false-positive NewApi warning inside this guarded helper.
+ */
+@SuppressLint("NewApi")
+@RequiresApi(Build.VERSION_CODES.S)
+@Composable
+private fun dynamicColorScheme(context: android.content.Context, darkTheme: Boolean) =
+    if (darkTheme) {
+        dynamicDarkColorScheme(context)
+    } else {
+        dynamicLightColorScheme(context)
+    }
 
 @Composable
 fun PrismJsComposeDemoScreen() {
@@ -121,8 +134,8 @@ fun PrismJsComposeDemoScreen() {
             SyntaxHighlighter(
                 sourceCode = SampleSourceCode.jetpackComposeView,
                 language = "kotlin",
-                showLineNumbers = false,
-                modifier = Modifier.fillMaxSize()
+                modifier = Modifier.fillMaxSize(),
+                showLineNumbers = false
             )
         }
 
@@ -141,8 +154,8 @@ fun PrismJsComposeDemoScreen() {
             SyntaxHighlighter(
                 sourceCode = SampleSourceCode.fragmentOnCreated,
                 language = "kotlin",
-                showLineNumbers = true,
-                modifier = Modifier.fillMaxSize()
+                modifier = Modifier.fillMaxSize(),
+                showLineNumbers = true
             )
         }
         
@@ -159,8 +172,8 @@ fun PrismJsComposeDemoScreen() {
             SyntaxHighlighter(
                 sourceCode = SampleSourceCode.customViewBind,
                 language = "kotlin",
-                showLineNumbers = true,
-                modifier = Modifier.fillMaxSize()
+                modifier = Modifier.fillMaxSize(),
+                showLineNumbers = true
             )
         }
         
@@ -177,8 +190,8 @@ fun PrismJsComposeDemoScreen() {
             SyntaxHighlighter(
                 sourceCode = "data class Student(val name: String, val age: Int)",
                 language = "kotlin",
-                showLineNumbers = false,
-                modifier = Modifier.fillMaxSize()
+                modifier = Modifier.fillMaxSize(),
+                showLineNumbers = false
             )
         }
 

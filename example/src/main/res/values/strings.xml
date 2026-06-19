@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Syntax Highlighter</string>
+
+    <!-- Main screen -->
+    <string name="highlightjs_title">Syntax Highlighting using https://highlightjs.org JS library.</string>
+    <string name="highlightjs_demo_button">See highlightjs Demo</string>
+    <string name="prismjs_title">Syntax Highlighting using https://prismjs.com JS library.</string>
+    <string name="prismjs_demo_button">See PrismJS Demo</string>
+    <string name="prismjs_compose_demo_button">See PrismJS Demo - Jetpack Compose</string>
+
+    <!-- Demo screens -->
+    <string name="syntax_highlighting_fragment_title">Syntax Highlighting using Fragment</string>
+    <string name="syntax_highlighting_custom_view_title">Syntax Highlighting using Custom View</string>
 </resources>
